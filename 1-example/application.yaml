@@ -9,9 +9,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antonputra/lesson-158.git
+    repoURL: https://github.com/assafdori/argocd-beginner.git
     targetRevision: HEAD
-    path: my-app
+    path: lesson-158/environments/staging/my-app
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
