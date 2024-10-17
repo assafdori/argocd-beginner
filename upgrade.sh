@@ -8,20 +8,20 @@ new_ver=$1
 echo "new version: $new_ver"
 
 # Simulate release of the new docker images
-docker tag nginx:1.23.3 aputra/nginx:$new_ver
+docker tag nginx asixl/nginx:$new_ver
 
 # Push new version to dockerhub
-docker push aputra/nginx:$new_ver
+docker push asixl/nginx:$new_ver
 
 # Create temporary folder
 tmp_dir=$(mktemp -d)
 echo $tmp_dir
 
 # Clone GitHub repo
-git clone git@github.com:antonputra/lesson-158.git $tmp_dir
-
+cd $tmp_dir
+git clone git@github.com:assafdori/argocd-beginner.git 
 # Update image tag
-sed -i '' -e "s/aputra\/nginx:.*/aputra\/nginx:$new_ver/g" $tmp_dir/my-app/1-deployment.yaml
+sed -i '' -e "s/asixl\/nginx:.*/asixl\/nginx:$new_ver/g" $tmp_dir/lesson-158/environments/staging/my-app/1-deployment.yaml
 
 # Commit and push
 cd $tmp_dir
