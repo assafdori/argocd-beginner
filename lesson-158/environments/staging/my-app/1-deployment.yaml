@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: asixl/nginx:v0.1.1
+          image: asixl/nginx
           ports:
             - containerPort: 80
